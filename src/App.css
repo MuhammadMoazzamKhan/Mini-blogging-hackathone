@@ -1,38 +1,185 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.formContainer {
+  background-color: #a7bcff;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.formContainer div.formWrapper {
+  background-color: #efffff;
+  padding: 20px 60px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.formContainer div.formWrapper #err {
+  color: red;
+}
+.formContainer div.formWrapper .logo {
+  color: #2791cf;
+  font-weight: bold;
+  font-size: 24px;
+}
+.formContainer div.formWrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.formContainer div.formWrapper form input {
+  padding: 15px;
+  border: none;
+  width: 250px;
+  border-bottom: 1px solid #a7bcff;
+}
+.formContainer div.formWrapper form input::-moz-placeholder {
+  color: rgb(175, 175, 175);
+}
+.formContainer div.formWrapper form input::placeholder {
+  color: rgb(175, 175, 175);
+}
+.formContainer div.formWrapper form label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #8da4f1;
+  cursor: pointer;
+}
+.formContainer div.formWrapper form label span {
+  margin-left: 5px;
+}
+.formContainer div.formWrapper form button {
+  background-color: #7b96ec;
   color: white;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+.formContainer div.formWrapper form p {
+  color: #5d5b8d;
+  font-size: 24px;
+  margin-top: 10px;
+}
+.formContainer div.formWrapper p span {
+  font-weight: bold;
+  color: #7b96ec;
+  cursor: pointer;
+}
+.formContainer div.formWrapper p span:hover {
+  color: #5d5b8d;
 }
 
-.App-link {
-  color: #61dafb;
+.cursor {
+  cursor: pointer;
+  overflow-y: scroll;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.message-set {
+  overflow-y: hidden;
+}
+
+.user-list {
+  position: relative;
+}
+.user-list .online-dot {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+}
+
+.green-dot {
+  background-color: rgb(38, 231, 38);
+}
+
+.red-dot {
+  background-color: red;
+}
+
+.notification-badge {
+  top: 14px;
+  right: 15px;
+}
+
+.user-picture>img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.user-picture {
+  width: 100px;
+  margin: 0px auto;
+  position: relative;
+}
+
+.camera-icon {
+  background-color: #fff;
+  width: 25px;
+  height: 25px;
+  border-radius: 12.5px;
+  position: absolute;
+  bottom: 10px;
+  right: -5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  cursor: pointer;
+}
+.responsive-heading {
+  font-size: 2rem; 
+  font-weight: bold; /* Make the text bold */
+  /* Adjust the font size as needed */
+  /* text-align: center; */
+  /* background-color: red; */
+  margin-top: 20px; /* Add margin for separation */
+}
+.sub-heading {
+  font-size: 1.5rem; /* Adjust the font size for the subheading */
+  /* text-align: center; */
+  margin-top: 3%; /* Add margin for separation */
+  color: #888; /* You can adjust the color as needed */
+}
+
+
+/* BlogItem.css */
+.blog-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.blog-info {
+  flex: 1;
+}
+
+.blog-name {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.blog-date {
+  margin: 0;
+  color: #888;
+}
+.custom-card {
+  width: 60% !important;
+  margin-bottom: 2%;
+  border-radius: 5px;
+  border: 2px solid lightgray;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px; /* Add some padding to give space between content and border */
 }
