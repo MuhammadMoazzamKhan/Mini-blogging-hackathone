@@ -76,8 +76,9 @@ const deleteMyblog =(()=>{
                             <div style={{ display: 'flex', flexDirection: 'row' }}>
                                 <Avatar size={70} src={blog?.userDp} style={{}} />
                                 <div style={{ marginLeft: 20 }}>
-                                    <h3 style={{ marginTop: 5 }}>{blog.name}</h3>
+                                    <h3 style={{ marginTop: 5 }}>{blog.blogTitle}</h3>
                                     {/* <p>{blog?.Date}</p> */}
+                                    <p>{blog?.name}</p>
                                 </div>
                             </div>
                             <div>
