@@ -39,6 +39,7 @@ export default function Registration() {
               email:emailValue,
               password: passwordValue,
               uid: user.uid,
+              userDp: 'https://ichef.bbci.co.uk/images/ic/1200x675/p03c84wz.jpg',
             });
             await console.log("Document written with ID: ", docRef.id);
             console.log(user)

@@ -13,7 +13,7 @@ export default function ButtonAppBar(props) {
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>
-        <Nav.Link as={Link} to={"/signup"}>{props.user}</Nav.Link>
+        <Nav.Link as={Link} to={!props.user?"/signup":"/Dashboard"}>{props.user}</Nav.Link>
         </Navbar.Text>
       </Navbar.Collapse>
     </Container>

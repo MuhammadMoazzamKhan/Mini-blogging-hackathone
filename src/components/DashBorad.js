@@ -30,7 +30,7 @@ export default function DashBorad() {
             if (user) {
                 console.log(user, 'useruseruseruseruseruseruseruseruseruseruseruseruser')
                 const db = getFirestore(app);
-                const q = query(collection(db, "Blogs"), where("uid", "==", user.uid));
+                const q = query(collection(db, "Blogs"), where("uid", "==", getAuth().currentUser.uid));
                 const querySnapshot = await getDocs(q);
 
                 const Blogs = [];
@@ -52,9 +52,10 @@ export default function DashBorad() {
         return () => unsubscribe();
     }, []);
 
-const deleteMyblog =(()=>{
-    alert()
-})
+    const deleteMyblog = (() => {
+        alert()
+    })
+
 
 
     return (
@@ -63,7 +64,7 @@ const deleteMyblog =(()=>{
                 <h1>DashBoard</h1>
             </div>
             <div style={{ display: "flex", justifyContent: 'flex-start', alignItems: "flex-start" }}>
-                <CustomCard />
+                <CustomCard setMyBlogs={setMyBlogs} MyBlogs={MyBlogs} />
             </div>
             <div className="container" style={{}}>
                 <h3>My blogs</h3>
@@ -71,14 +72,20 @@ const deleteMyblog =(()=>{
             <div className='container'>
                 {MyBlogs.length > 0 && MyBlogs.map((blog, index) => {
                     console.log(blog, index, 'blog, indexblog, index')
+
+
+
+                    // const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                    // const formattedDate = blog?.timestamp.toDate().toLocaleDateString(undefined, options);
+                    // console.log("Formatted Date: ", formattedDate);
                     return (
                         <div key={index} className="custom-card">
                             <div style={{ display: 'flex', flexDirection: 'row' }}>
                                 <Avatar size={70} src={blog?.userDp} style={{}} />
                                 <div style={{ marginLeft: 20 }}>
                                     <h3 style={{ marginTop: 5 }}>{blog.blogTitle}</h3>
-                                    {/* <p>{blog?.Date}</p> */}
-                                    <p>{blog?.name}</p>
+                                    {/* <p>{blog?.timestamp?.toDate().toLocaleString()}</p> */}
+                                    <p>{blog?.userName}</p>
                                 </div>
                             </div>
                             <div>

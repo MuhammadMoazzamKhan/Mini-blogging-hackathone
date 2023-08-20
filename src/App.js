@@ -78,7 +78,7 @@ function App() {
   return (
     <Router> {/* Change Main to Router */}
       <>
-        <Navbar user={!currentUser ? 'Sign In' : currentUser.name} /> {/* Change "Sign In" to "Sign Out" when user is authenticated */}
+        <Navbar user={!currentUser ? 'Sign In' : currentUser.userName} /> {/* Change "Sign In" to "Sign Out" when user is authenticated */}
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/signup" element={<Registration />} />
