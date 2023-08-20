@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .formContainer div.formWrapper {
   background-color: #efffff;
   padding: 20px 60px;
@@ -14,31 +15,38 @@
   gap: 20px;
   align-items: center;
 }
+
 .formContainer div.formWrapper #err {
   color: red;
 }
+
 .formContainer div.formWrapper .logo {
   color: #2791cf;
   font-weight: bold;
   font-size: 24px;
 }
+
 .formContainer div.formWrapper form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
+
 .formContainer div.formWrapper form input {
   padding: 15px;
   border: none;
   width: 250px;
   border-bottom: 1px solid #a7bcff;
 }
+
 .formContainer div.formWrapper form input::-moz-placeholder {
   color: rgb(175, 175, 175);
 }
+
 .formContainer div.formWrapper form input::placeholder {
   color: rgb(175, 175, 175);
 }
+
 .formContainer div.formWrapper form label {
   display: flex;
   align-items: center;
@@ -46,9 +54,11 @@
   color: #8da4f1;
   cursor: pointer;
 }
+
 .formContainer div.formWrapper form label span {
   margin-left: 5px;
 }
+
 .formContainer div.formWrapper form button {
   background-color: #7b96ec;
   color: white;
@@ -57,16 +67,19 @@
   border: none;
   cursor: pointer;
 }
+
 .formContainer div.formWrapper form p {
   color: #5d5b8d;
   font-size: 24px;
   margin-top: 10px;
 }
+
 .formContainer div.formWrapper p span {
   font-weight: bold;
   color: #7b96ec;
   cursor: pointer;
 }
+
 .formContainer div.formWrapper p span:hover {
   color: #5d5b8d;
 }
@@ -83,6 +96,7 @@
 .user-list {
   position: relative;
 }
+
 .user-list .online-dot {
   position: absolute;
   top: 10px;
@@ -132,19 +146,26 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   cursor: pointer;
 }
+
 .responsive-heading {
-  font-size: 2rem; 
-  font-weight: bold; /* Make the text bold */
+  font-size: 2rem;
+  font-weight: bold;
+  /* Make the text bold */
   /* Adjust the font size as needed */
   /* text-align: center; */
   /* background-color: red; */
-  margin-top: 20px; /* Add margin for separation */
+  margin-top: 20px;
+  /* Add margin for separation */
 }
+
 .sub-heading {
-  font-size: 1.5rem; /* Adjust the font size for the subheading */
+  font-size: 1.5rem;
+  /* Adjust the font size for the subheading */
   /* text-align: center; */
-  margin-top: 3%; /* Add margin for separation */
-  color: #888; /* You can adjust the color as needed */
+  margin-top: 3%;
+  /* Add margin for separation */
+  color: #888;
+  /* You can adjust the color as needed */
 }
 
 
@@ -175,11 +196,42 @@
   margin: 0;
   color: #888;
 }
+
 .custom-card {
   width: 60% !important;
   margin-bottom: 2%;
   border-radius: 5px;
   border: 2px solid lightgray;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  padding: 20px; /* Add some padding to give space between content and border */
+  padding: 20px;
+  /* Add some padding to give space between content and border */
+}
+.image-container {
+  position: relative;
+  max-width: 250px !important; /* Set the width of your container */
+  height: 230px; /* Set the height of your container */
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+}
+
+.overlay-button {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  padding: 10px 20px;
+  font-size: xx-large;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+.btn{
+  padding-block: initial;
+  font-style: italic;
 }

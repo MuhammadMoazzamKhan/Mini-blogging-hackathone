@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState,useEffect } from 'react'; // Don't forget to import React
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Use Router instead of Main
-import firebase from 'firebase/app'; // Import firebase
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import Navbar from './components/Navbar';
@@ -12,12 +11,12 @@ import DashBorad from './components/DashBorad';
 import { getFirestore } from "firebase/firestore";
 import { app } from "./FireBase"
 import { collection, query, where, getDocs } from "firebase/firestore";
+import Profile from './components/Profile';
 
 
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [currentUser, setcurrentUser] = useState(null);
+  const [currentUser, setcurrentUser] = useState([]);
 
 
   const auth = getAuth();
@@ -50,7 +49,6 @@ function App() {
       if (user) {
             const uid = user.uid;
             console.log(user, 'current user')
-            setUser(user)
       
             const db = getFirestore(app);
             const q = query(collection(db, "user"), where("uid", "==", uid));
@@ -63,7 +61,6 @@ function App() {
       
       
           } else {
-            setUser(null)
             console.log("User no")
           }
     });
@@ -78,12 +75,13 @@ function App() {
   return (
     <Router> {/* Change Main to Router */}
       <>
-        <Navbar user={!currentUser ? 'Sign In' : currentUser.name} /> {/* Change "Sign In" to "Sign Out" when user is authenticated */}
+        <Navbar user={!currentUser ? 'Sign In'  : currentUser.userName} path={!currentUser ? '/signin'  : "/profile"} bloger={!currentUser ? ''  : "My blogs"} /> {/* Change "Sign In" to "Sign Out" when user is authenticated */}
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/signup" element={<Registration />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/dashboard" element={<DashBorad />} />
+          <Route exact path="/profile" element={<Profile/>} />
         </Routes>
       </>
     </Router>

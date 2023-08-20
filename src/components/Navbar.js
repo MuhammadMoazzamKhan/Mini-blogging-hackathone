@@ -9,11 +9,17 @@ export default function ButtonAppBar(props) {
   return (
     <Navbar bg="dark" data-bs-theme="dark">
     <Container>
-      <Navbar.Brand href="#home">Personal Blogging App</Navbar.Brand>
+      <Navbar.Brand  href="#home">Personal Blogging App</Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>
-        <Nav.Link as={Link} to={"/signup"}>{props.user}</Nav.Link>
+        <Nav.Link as={Link} to="/" >Home</Nav.Link>
+        </Navbar.Text>
+        <Navbar.Text>
+        <Nav.Link as={Link} to="/dashboard"  style={{marginLeft:"20px"}} >{props.bloger}</Nav.Link>
+        </Navbar.Text>
+        <Navbar.Text>
+        <Nav.Link as={Link} to={props.path} style={{marginLeft:"20px"}}>{props.user}</Nav.Link>
         </Navbar.Text>
       </Navbar.Collapse>
     </Container>

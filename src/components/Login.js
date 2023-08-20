@@ -15,11 +15,11 @@ export default function Login() {
         if (email && password) {
             const auth = getAuth(app);
             signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
+                .then(async(userCredential) => {
 
-                    const user = userCredential.user;
+                    const user = await userCredential.user;
                     console.log("user-->",user)
-
+                    window.location = "/"
                 })
                 .catch((error) => {
                     const errorCode = error.code;

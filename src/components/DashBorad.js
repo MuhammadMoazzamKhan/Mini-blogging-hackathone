@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import CustomCard from './CustomCard'
-import { getFirestore, collection, getDocs, query, where, onSnapshot } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, where, onSnapshot ,serverTimestamp } from "firebase/firestore";
 import { app } from "../FireBase"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-// import firebase from 'firebase/app';
 import { Card, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
+import moment from"moment";
 
 export default function DashBorad() {
     const [MyBlogs, setMyBlogs] = useState([]);
@@ -77,8 +77,9 @@ const deleteMyblog =(()=>{
                                 <Avatar size={70} src={blog?.userDp} style={{}} />
                                 <div style={{ marginLeft: 20 }}>
                                     <h3 style={{ marginTop: 5 }}>{blog.blogTitle}</h3>
-                                    {/* <p>{blog?.Date}</p> */}
-                                    <p>{blog?.name}</p>
+                                    <p>{moment(blog.timestamp.toDate()).fromNow()}</p>
+                                    {/* console.log(blog.timeS) */}
+                                    <p>{blog?.userName}</p>
                                 </div>
                             </div>
                             <div>
