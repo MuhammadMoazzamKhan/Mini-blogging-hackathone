@@ -49,14 +49,11 @@ const CustomCard = ({ setMyBlogs, MyBlogs }) => {
             dataObject.blogId = docRef.id;
             const updatedDocRef = await setDoc(doc(db, "Blogs", docRef.id), dataObject);
 
+            window.location.reload()
             let MyBlogsClone= MyBlogs.slice(0)
             MyBlogsClone.push(dataObject)
             setMyBlogs(MyBlogsClone)
             //    console.log("Updated document written with ID: ", updatedDocRef.id);
-
-
-
-
         }
     }
 

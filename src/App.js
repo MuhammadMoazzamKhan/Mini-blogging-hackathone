@@ -3,6 +3,8 @@ import React, { useState,useEffect } from 'react'; // Don't forget to import Rea
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Use Router instead of Main
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
+import LoadingBar from 'react-top-loading-bar'
+
 import Navbar from './components/Navbar';
 import Registration from './components/Registration';
 import Login from './components/Login';
@@ -15,8 +17,11 @@ import Profile from './components/Profile';
 
 
 
+
 function App() {
   const [currentUser, setcurrentUser] = useState([]);
+  const [progress, setProgress] = useState(0)
+
 
 
   const auth = getAuth();
@@ -62,6 +67,7 @@ function App() {
       
           } else {
             console.log("User no")
+            setcurrentUser('')
           }
     });
 
@@ -75,13 +81,18 @@ function App() {
   return (
     <Router> {/* Change Main to Router */}
       <>
-        <Navbar user={!currentUser ? 'Sign In'  : currentUser.userName} path={!currentUser ? '/signin'  : "/profile"} bloger={!currentUser ? ''  : "My blogs"} /> {/* Change "Sign In" to "Sign Out" when user is authenticated */}
+        <Navbar user={currentUser ?  currentUser.userName : "Sign Up" } path={currentUser ? "/profile"  : "/signup"} bloger={currentUser ? "My blogs" : "Log in" } blogerPath={currentUser ? "./dashboard" : "./login"} />
+        <LoadingBar
+          height={3}
+          color='#f11946'
+          progress={progress}
+        />
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/signup" element={<Registration />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/dashboard" element={<DashBorad />} />
-          <Route exact path="/profile" element={<Profile/>} />
+          <Route exact path="/" element={<Home  setProgress={setProgress} />} />
+          <Route exact path="/signup" element={<Registration  setProgress={setProgress} />} />
+          <Route exact path="/login" element={<Login  setProgress={setProgress} />} />
+          <Route exact path="/dashboard" element={<DashBorad  setProgress={setProgress} />} />
+          <Route exact path="/profile" element={<Profile setProgress={setProgress} />} />
         </Routes>
       </>
     </Router>
